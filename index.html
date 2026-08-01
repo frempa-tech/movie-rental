@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Winona Movie Rental Service</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#222;
+}
+
+/* Pages */
+
+.page{
+    display:none;
+    min-height:100vh;
+}
+
+.page.active{
+    display:block;
+}
+
+
+/* Home Page */
+
+header{
+    background:linear-gradient(135deg,#111827,#2563eb);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+header h1{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.phone{
+    font-size:22px;
+}
+
+
+/* Price Card */
+
+.price-box{
+
+    background:white;
+    color:#222;
+    width:330px;
+    margin:35px auto;
+    padding:25px;
+
+    border-radius:18px;
+
+    border:4px solid gold;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+
+.price-box h2{
+    margin-bottom:10px;
+}
+
+
+.price{
+
+    font-size:60px;
+    font-weight:bold;
+    color:#16a34a;
+
+}
+
+
+.price-box p{
+
+    font-size:20px;
+
+}
+
+
+/* Buttons */
+
+button{
+
+    margin-top:30px;
+
+    padding:15px 35px;
+
+    font-size:18px;
+
+    background:#facc15;
+
+    color:#111;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* Movies Page */
+
+.movies{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:50px 20px;
+
+}
+
+
+.movies h1{
+
+    text-align:center;
+
+    font-size:40px;
+
+}
+
+
+.search{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:30px 0;
+
+    font-size:18px;
+
+    border-radius:10px;
+
+    border:1px solid #aaa;
+
+}
+
+
+.movie{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+
+.movie h2{
+
+    color:#2563eb;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HOME PAGE -->
+
+<div id="home" class="page active">
+
+
+<header>
+
+
+<h1>🎬 Winona Movie Rental Service</h1>
+
+
+<p class="phone">
+
+📞 Call Us: <strong>(555) 123-4567</strong>
+
+</p>
+
+
+
+<div class="price-box">
+
+<h2>🍿 Weekly Movie Deal</h2>
+
+<div class="price">$5</div>
+
+<p>
+Rent any movie for <strong>1 Week</strong>
+</p>
+
+</div>
+
+
+
+<button onclick="showMovies()">
+
+Explore Our Movies 🎥
+
+</button>
+
+
+
+</header>
+
+
+</div>
+
+
+
+
+
+<!-- MOVIE PAGE -->
+
+
+<div id="movies" class="page">
+
+
+<div class="movies">
+
+
+<h1>🎞 Our Movies</h1>
+
+
+<input 
+class="search"
+id="searchBar"
+type="text"
+placeholder="Search movies..."
+onkeyup="searchMovies()">
+
+
+
+
+
+<div class="movie">
+
+<h2>The Lego Movie</h2>
+
+<p>Comedy • Family</p>
+
+</div>
+
+
+
+<div class="movie">
+
+<h2>Spider-Man: Into the Spider-Verse</h2>
+
+<p>Action • Animation</p>
+
+</div>
+
+
+
+
+<div class="movie">
+
+<h2>Interstellar</h2>
+
+<p>Science Fiction • Adventure</p>
+
+</div>
+
+
+
+
+<div class="movie">
+
+<h2>Jurassic Park</h2>
+
+<p>Adventure • Classic</p>
+
+</div>
+
+
+
+
+<div class="movie">
+
+<h2>Toy Story</h2>
+
+<p>Animation • Family</p>
+
+</div>
+
+
+
+
+<button onclick="goHome()">
+
+⬅ Back Home
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+function showMovies(){
+
+document.getElementById("home").classList.remove("active");
+
+document.getElementById("movies").classList.add("active");
+
+}
+
+
+
+function goHome(){
+
+document.getElementById("movies").classList.remove("active");
+
+document.getElementById("home").classList.add("active");
+
+}
+
+
+
+
+function searchMovies(){
+
+
+let search = document
+.getElementById("searchBar")
+.value
+.toLowerCase();
+
+
+
+let movies=document.getElementsByClassName("movie");
+
+
+
+for(let i=0;i<movies.length;i++){
+
+
+let title=movies[i]
+.getElementsByTagName("h2")[0]
+.innerText
+.toLowerCase();
+
+
+
+if(title.includes(search)){
+
+
+movies[i].style.display="block";
+
+
+}
+
+else{
+
+
+movies[i].style.display="none";
+
+
+}
+
+
+}
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
