@@ -142,30 +142,46 @@ nav a:hover::after{
 }
 
 
-/* Games Background */
+/* Games / Teams Background */
 
-.games-page{
+.games-page,
+.teams-page{
     min-height:75vh;
-
-    background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-    url("courts.jpg");
-
     background-size:cover;
     background-position:center;
     border-radius:15px;
     padding:40px;
 }
 
+.games-page{
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("courts.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.teams-page{
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("teams.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
 
 /* Games */
 
-.games-container{
+.games-container,
+.teams-container{
     max-width:1000px;
     margin:auto;
 }
 
-.games-title{
+.games-title,
+.teams-title{
     text-align:center;
     color:#ff7b00;
     font-size:48px;
@@ -173,7 +189,8 @@ nav a:hover::after{
     text-shadow:0 4px 20px rgba(0,0,0,.5);
 }
 
-.no-games{
+.no-games,
+.no-teams{
     text-align:center;
     color:#aaa;
     font-style:italic;
@@ -232,6 +249,42 @@ nav a:hover::after{
     font-weight:bold;
 }
 
+/* Teams */
+
+.team{
+    background:#222;
+    border-left:8px solid #ff7b00;
+    border-radius:10px;
+    padding:22px;
+    margin-bottom:20px;
+    transition:.2s;
+}
+
+.team:hover{
+    transform:translateY(-3px);
+    background:#2a2a2a;
+    box-shadow:0 6px 18px rgba(0,0,0,.4);
+}
+
+.team h2{
+    color:#ff7b00;
+    margin-bottom:14px;
+}
+
+.roster{
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+    gap:10px;
+}
+
+.roster li{
+    background:#1a1a1a;
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:17px;
+}
+
 footer{
     text-align:center;
     padding:30px;
@@ -261,7 +314,8 @@ footer{
         padding:20px;
     }
 
-    .games-page{
+    .games-page,
+    .teams-page{
         min-height:80vh;
         padding:20px;
     }
@@ -279,12 +333,18 @@ footer{
         padding:15px 30px;
     }
 
-    .games-title{
+    .games-title,
+    .teams-title{
         font-size:36px;
     }
 
-    .game{
+    .game,
+    .team{
         padding:18px;
+    }
+
+    .roster{
+        grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
     }
 
 }
@@ -297,6 +357,7 @@ footer{
 <nav>
     <a onclick="showPage('home')">HOME</a>
     <a onclick="showPage('games')">GAMES</a>
+    <a onclick="showPage('teams')">TEAMS</a>
 </nav>
 
 
@@ -308,11 +369,7 @@ footer{
 
 <h1>WMS Basketball</h1>
 
-<p>Check back soon.</p>
-
-<div class="button" onclick="showPage('games')">
-View Games
-</div>
+<p>Check back soon...</p>
 
 </div>
 
@@ -359,6 +416,41 @@ View Games
 ▶ Watch Game
 </a>
 </div>
+
+</div>
+<!----------------------------------------------------------------------->
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TEAMS PAGE -->
+
+<div class="page" id="teams">
+
+<div class="teams-page">
+
+<div class="teams-container">
+
+<h1 class="teams-title">Teams</h1>
+
+<p class="no-teams">Nothing here yet!</p>
+
+<!-----------------------------------------------------------------------
+<div class="team">
+
+<h2>______'s Team</h2>
+
+<ul class="roster">
+<li>Player Name</li>
+<li>Player Name</li>
+<li>Player Name</li>
+<li>Player Name</li>
+<li>Player Name</li>
+</ul>
 
 </div>
 <!----------------------------------------------------------------------->
