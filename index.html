@@ -110,6 +110,23 @@ nav a:hover{
     transform:translateY(-3px);
 }
 
+
+/* Games Background */
+
+.games-page{
+    min-height:75vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("courts.jpg");
+
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
+    padding:40px;
+}
+
+
 /* Games */
 
 .games-container{
@@ -202,6 +219,11 @@ footer{
         padding:20px;
     }
 
+    .games-page{
+        min-height:80vh;
+        padding:20px;
+    }
+
     .hero h1{
         font-size:42px;
     }
@@ -235,6 +257,7 @@ footer{
     <a onclick="showPage('games')">GAMES</a>
 </nav>
 
+
 <!-- HOME PAGE -->
 
 <div class="page active" id="home">
@@ -267,18 +290,20 @@ View Games
 
 </div>
 
+
 <!-- GAMES PAGE -->
 
 <div class="page" id="games">
 
+<div class="games-page">
+
 <div class="games-container">
 
-<h1 class="games-title"> Games</h1>
+<h1 class="games-title">Games</h1>
 
 <div class="game">
 
 <h2>January 67, 1967</h2>
-<!--------------------------------------------------------------------------------------------------------->
 
 <p><strong>Teams:</strong> Test vs Test</p>
 
@@ -291,14 +316,18 @@ View Games
 </div>
 
 </div>
-<!---------------------------------------------------------------------------------------------------------->
+
 </div>
 
 </div>
+
+</div>
+
 
 <footer>
 © 2026 WMS Basketball
 </footer>
+
 
 <script>
 
