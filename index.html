@@ -70,6 +70,14 @@ nav a:hover{
     align-items:center;
     text-align:center;
     min-height:75vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("backround.jpg");
+
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
 }
 
 .hero h1{
@@ -170,6 +178,53 @@ footer{
     padding:30px;
     color:#777;
 }
+
+
+/* Mobile Support */
+
+@media(max-width:700px){
+
+    nav{
+        gap:25px;
+        padding:15px;
+    }
+
+    nav a{
+        font-size:17px;
+    }
+
+    .page{
+        padding:20px;
+    }
+
+    .hero{
+        min-height:80vh;
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:22px;
+    }
+
+    .button{
+        font-size:20px;
+        padding:15px 30px;
+    }
+
+    .games-title{
+        font-size:36px;
+    }
+
+    .game{
+        padding:18px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -207,7 +262,7 @@ View Games
         Watch Some of Last Year's Games →
     </a>
 </div>
-    
+
 </div>
 
 </div>
@@ -219,10 +274,6 @@ View Games
 <div class="games-container">
 
 <h1 class="games-title">Basketball Games</h1>
-
-<!-- ==================================================
-COPY THIS ENTIRE BLOCK TO ADD A NEW GAME
-================================================== -->
 
 <div class="game">
 
@@ -239,8 +290,6 @@ COPY THIS ENTIRE BLOCK TO ADD A NEW GAME
 </div>
 
 </div>
-
-<!-- ================================================== -->
 
 </div>
 
