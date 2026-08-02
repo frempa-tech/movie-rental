@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Local Movie Rental </title>
+<title>WMS Basketball</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,402 +13,279 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#f4f4f4;
-    color:#222;
+    background:#111;
+    color:white;
+}
+
+/* Navigation */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#ff7b00;
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    padding:18px;
+    box-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:black;
 }
 
 /* Pages */
 
 .page{
     display:none;
-    min-height:100vh;
+    min-height:calc(100vh - 70px);
+    padding:40px;
 }
 
 .page.active{
     display:block;
 }
 
+/* Home */
 
-/* Home Page */
-
-header{
-    background:linear-gradient(135deg,#111827,#2563eb);
-    color:white;
+.hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:70px 20px;
+    min-height:75vh;
 }
 
-header h1{
-    font-size:45px;
+.hero h1{
+    font-size:72px;
+    color:#ff7b00;
+    font-weight:900;
     margin-bottom:20px;
 }
 
-.phone{
-    font-size:22px;
+.hero p{
+    font-size:28px;
+    color:#ddd;
 }
 
+.button{
+    margin-top:45px;
+    background:#ff7b00;
+    color:white;
+    padding:18px 42px;
+    border-radius:10px;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
 
-/* Price Card */
-
-.price-box{
-
+.button:hover{
     background:white;
-    color:#222;
-    width:330px;
-    margin:35px auto;
-    padding:25px;
-
-    border-radius:18px;
-
-    border:4px solid gold;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-
+    color:black;
+    transform:translateY(-3px);
 }
 
+/* Games */
 
-.price-box h2{
+.games-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.games-title{
+    text-align:center;
+    color:#ff7b00;
+    font-size:48px;
+    margin-bottom:35px;
+}
+
+.game{
+    background:#222;
+    border-left:8px solid #ff7b00;
+    border-radius:10px;
+    padding:22px;
+    margin-bottom:20px;
+    transition:.2s;
+}
+
+.game:hover{
+    transform:translateY(-3px);
+    background:#2a2a2a;
+}
+
+.game h2{
+    color:#ff7b00;
     margin-bottom:10px;
 }
 
-
-.price{
-
-    font-size:60px;
-    font-weight:bold;
-    color:#16a34a;
-
-}
-
-
-.price-box p{
-
-    font-size:20px;
-
-}
-
-
-/* Buttons */
-
-button{
-
-    margin-top:30px;
-
-    padding:15px 35px;
-
+.game p{
+    margin:7px 0;
     font-size:18px;
+}
 
-    background:#facc15;
+.watch{
+    margin-top:15px;
+}
 
-    color:#111;
-
-    border:none;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
+.watch a{
+    display:inline-block;
+    background:#ff7b00;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
     font-weight:bold;
-
 }
 
-
-button:hover{
-
-    transform:scale(1.05);
-
-}
-
-
-/* Movies Page */
-
-.movies{
-
-    max-width:900px;
-
-    margin:auto;
-
-    padding:50px 20px;
-
-}
-
-
-.movies h1{
-
-    text-align:center;
-
-    font-size:40px;
-
-}
-
-
-.search{
-
-    width:100%;
-
-    padding:15px;
-
-    margin:30px 0;
-
-    font-size:18px;
-
-    border-radius:10px;
-
-    border:1px solid #aaa;
-
-}
-
-
-.movie{
-
+.watch a:hover{
     background:white;
-
-    padding:20px;
-
-    margin-bottom:15px;
-
-    border-radius:12px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-
+    color:black;
 }
 
-
-.movie h2{
-
-    color:#2563eb;
-
+.not-uploaded{
+    color:#aaa;
+    font-style:italic;
+    font-weight:bold;
 }
 
-
-
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
 </style>
-
 </head>
-
 
 <body>
 
+<nav>
+    <a onclick="showPage('home')">HOME</a>
+    <a onclick="showPage('games')">GAMES</a>
+</nav>
 
 <!-- HOME PAGE -->
 
-<div id="home" class="page active">
+<div class="page active" id="home">
 
+<div class="hero">
 
-<header>
+<h1>WMS Basketball</h1>
 
+<p>Check back soon.</p>
 
-<h1>🎬 Frempa Rental Service</h1>
-
-
-<p class="phone">
-
-📞 Call Us: <strong>(555) 123-4567</strong>
-
-</p>
-
-
-
-<div class="price-box">
-
-<h2>🍿 Weekly Movie Deal</h2>
-
-<div class="price">$5</div>
-
-<p>
-Rent any movie for <strong>1 Week</strong>
-</p>
+<div class="button" onclick="showPage('games')">
+View Games
+</div>
 
 </div>
 
+</div>
 
+<!-- GAMES PAGE -->
 
-<button onclick="showMovies()">
+<div class="page" id="games">
 
-Explore Our Movies 🎥
+<div class="games-container">
 
-</button>
+<h1 class="games-title">Basketball Games</h1>
 
+<!-- ==================================================
+COPY THIS ENTIRE BLOCK TO ADD A NEW GAME
+================================================== -->
 
+<div class="game">
 
-</header>
+<h2>January 12, 2026</h2>
 
+<p><strong>Teams:</strong> WMS vs Lincoln</p>
+
+<p><strong>Score:</strong> 54 - 49</p>
+
+<div class="watch">
+<a href="https://youtube.com/" target="_blank">
+▶ Watch Game
+</a>
+</div>
 
 </div>
 
+<!-- ================================================== -->
 
+<div class="game">
 
+<h2>January 18, 2026</h2>
 
+<p><strong>Teams:</strong> WMS vs Jefferson</p>
 
-<!-- MOVIE PAGE -->
+<p><strong>Score:</strong> 47 - 45</p>
 
-
-<div id="movies" class="page">
-
-
-<div class="movies">
-
-
-<h1>🎞 Our Movies</h1>
-
-
-<input 
-class="search"
-id="searchBar"
-type="text"
-placeholder="Search movies..."
-onkeyup="searchMovies()">
-
-
-
-
-
-<div class="movie">
-
-<h2>The Lego Movie</h2>
-
-<p>Comedy • Family</p>
+<div class="watch">
+<span class="not-uploaded">
+Game Not Uploaded
+</span>
+</div>
 
 </div>
 
+<div class="game">
 
+<h2>January 25, 2026</h2>
 
-<div class="movie">
+<p><strong>Teams:</strong> WMS vs Central</p>
 
-<h2>Spider-Man: Into the Spider-Verse</h2>
+<p><strong>Score:</strong> 61 - 56</p>
 
-<p>Action • Animation</p>
+<div class="watch">
+<a href="https://youtube.com/" target="_blank">
+▶ Watch Game
+</a>
+</div>
 
 </div>
 
-
-
-
-<div class="movie">
-
-<h2>Interstellar</h2>
-
-<p>Science Fiction • Adventure</p>
+</div>
 
 </div>
 
-
-
-
-<div class="movie">
-
-<h2>Jurassic Park</h2>
-
-<p>Adventure • Classic</p>
-
-</div>
-
-
-
-
-<div class="movie">
-
-<h2>Toy Story</h2>
-
-<p>Animation • Family</p>
-
-</div>
-
-
-
-
-<button onclick="goHome()">
-
-⬅ Back Home
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
+<footer>
+© 2026 WMS Basketball
+</footer>
 
 <script>
 
+function showPage(page){
 
-function showMovies(){
+document.querySelectorAll(".page").forEach(function(p){
+    p.classList.remove("active");
+});
 
-document.getElementById("home").classList.remove("active");
+document.getElementById(page).classList.add("active");
 
-document.getElementById("movies").classList.add("active");
-
-}
-
-
-
-function goHome(){
-
-document.getElementById("movies").classList.remove("active");
-
-document.getElementById("home").classList.add("active");
+window.scrollTo({
+    top:0,
+    behavior:"smooth"
+});
 
 }
-
-
-
-
-function searchMovies(){
-
-
-let search = document
-.getElementById("searchBar")
-.value
-.toLowerCase();
-
-
-
-let movies=document.getElementsByClassName("movie");
-
-
-
-for(let i=0;i<movies.length;i++){
-
-
-let title=movies[i]
-.getElementsByTagName("h2")[0]
-.innerText
-.toLowerCase();
-
-
-
-if(title.includes(search)){
-
-
-movies[i].style.display="block";
-
-
-}
-
-else{
-
-
-movies[i].style.display="none";
-
-
-}
-
-
-}
-
-
-}
-
 
 </script>
 
-
 </body>
-
 </html>
