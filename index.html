@@ -33,7 +33,7 @@ nav{
     justify-content:center;
     gap:50px;
     padding:18px;
-    box-shadow:0 2px 10px rgba(0,0,0,.4);
+    box-shadow:0 2px10px rgba(0,0,0,.4);
 }
 
 nav a{
@@ -282,6 +282,8 @@ View Games
 
 </div>
 
+</div>
+
 
 <!-- GAMES PAGE -->
 
@@ -332,3 +334,31 @@ View Games
 </div>
 
 </div>
+
+
+<footer>
+© 2026 WMS Basketball
+</footer>
+
+
+<script>
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(function(p){
+    p.classList.remove("active");
+});
+
+document.getElementById(page).classList.add("active");
+
+window.scrollTo({
+    top:0,
+    behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
