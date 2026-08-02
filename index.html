@@ -280,22 +280,6 @@ footer{
 View Games
 </div>
 
-<div style="margin-top:25px;">
-    <a href="https://www.youtube.com/playlist?list=PLhl7YhPgeXATZWUfdYo-5q3F0ibUts-ku"
-       target="_blank"
-       style="
-            color:#ff7b00;
-            font-size:22px;
-            font-weight:bold;
-            text-decoration:none;
-            transition:.2s;
-       ">
-        Watch Some of Last Year's Games →
-    </a>
-</div>
-
-</div>
-
 </div>
 
 
@@ -310,6 +294,20 @@ View Games
 <h1 class="games-title">Games</h1>
 
 <p class="no-games">Nothing here yet!</p>
+
+<div style="margin-top:25px; text-align:center;">
+    <a href="https://www.youtube.com/playlist?list=PLhl7YhPgeXATZWUfdYo-5q3F0ibUts-ku"
+       target="_blank"
+       style="
+            color:#ff7b00;
+            font-size:22px;
+            font-weight:bold;
+            text-decoration:none;
+            transition:.2s;
+       ">
+        Watch Some of Last Year's Games →
+    </a>
+</div>
 
 <!----------------------------------------------------------------------- <-- add a > here to add a game
 <div class="game">
@@ -334,31 +332,3 @@ View Games
 </div>
 
 </div>
-
-
-<footer>
-© 2026 WMS Basketball
-</footer>
-
-
-<script>
-
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(function(p){
-    p.classList.remove("active");
-});
-
-document.getElementById(page).classList.add("active");
-
-window.scrollTo({
-    top:0,
-    behavior:"smooth"
-});
-
-}
-
-</script>
-
-</body>
-</html>
