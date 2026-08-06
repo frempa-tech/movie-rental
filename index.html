@@ -34,6 +34,34 @@ nav{
     z-index:1000;
 }
 
+.nav-toggle-wrap{
+    position:fixed;
+    top:18px;
+    right:20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    z-index:1004;
+}
+
+.nav-label{
+    color:#ff7b00;
+    font-weight:800;
+    letter-spacing:3px;
+    font-size:13px;
+    text-transform:uppercase;
+    opacity:0;
+    transform:translateX(8px);
+    transition:opacity .3s ease, transform .3s ease;
+    text-shadow:0 0 12px rgba(255,123,0,.7);
+    white-space:nowrap;
+}
+
+.nav-label.open{
+    opacity:1;
+    transform:translateX(0);
+}
+
 .hamburger{
     background:#ff7b00;
     border:none;
@@ -46,10 +74,7 @@ nav{
     padding:14px 16px;
     box-shadow:0 4px 14px rgba(255,123,0,.35);
     transition:.2s;
-    position:fixed;
-    top:18px;
-    right:20px;
-    z-index:1004;
+    animation:pulseGlow 3s ease-in-out infinite;
 }
 
 .hamburger:hover{
@@ -67,6 +92,8 @@ nav{
 
 .hamburger.active{
     border-radius:12px;
+    animation:none;
+    box-shadow:0 0 20px rgba(255,123,0,.6);
 }
 
 .hamburger.active span:nth-child(1){
@@ -84,7 +111,7 @@ nav{
 .nav-overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
+    background:rgba(0,0,0,.65);
     opacity:0;
     pointer-events:none;
     transition:opacity .3s ease;
@@ -104,11 +131,27 @@ nav{
     right:-320px;
     width:280px;
     height:100vh;
-    background:#ff7b00;
-    box-shadow:-8px 0 24px rgba(0,0,0,.4);
-    padding-top:100px;
+    background:linear-gradient(165deg, #1c1c1c 0%, #0a0a0a 100%);
+    border-left:2px solid #ff7b00;
+    box-shadow:-20px 0 60px rgba(255,123,0,.15), -8px 0 24px rgba(0,0,0,.6);
+    padding-top:110px;
     transition:right .35s ease;
     z-index:1003;
+    overflow:hidden;
+}
+
+.nav-links::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:repeating-linear-gradient(
+        180deg,
+        rgba(255,123,0,.03) 0px,
+        rgba(255,123,0,.03) 1px,
+        transparent 1px,
+        transparent 26px
+    );
+    pointer-events:none;
 }
 
 .nav-links.open{
@@ -117,17 +160,25 @@ nav{
 
 nav a{
     position:relative;
-    color:white;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    color:#eee;
     text-decoration:none;
-    font-size:22px;
+    font-size:25px;
     font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
     cursor:pointer;
     transition:.2s;
     padding:20px 30px;
+    border-bottom:1px solid rgba(255,123,0,.15);
 }
 
 .nav-links a:hover{
-    background:rgba(0,0,0,.15);
+    background:linear-gradient(90deg, rgba(255,123,0,.18), transparent);
+    color:#ff7b00;
+    padding-left:38px;
 }
 
 /* Pages */
@@ -165,8 +216,19 @@ nav a{
     background-size:cover;
     background-position:center;
     border-radius:15px;
+    border:1px solid rgba(255,123,0,.35);
     position:relative;
     overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg, transparent, #ff7b00, transparent);
 }
 
 .hero-badge{
@@ -251,14 +313,37 @@ nav a{
     background-size:cover;
     background-position:center;
     border-radius:15px;
+    border:1px solid rgba(255,123,0,.35);
     padding:40px;
+    position:relative;
+    overflow:hidden;
 }
 
-.games-page,
-.playoffs-page{
+.games-page::before,
+.teams-page::before,
+.playoffs-page::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg, transparent, #ff7b00, transparent);
+}
+
+.games-page{
     background:
     linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
     url("courts.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.playoffs-page{
+    background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("blacktop.jpg");
 
     background-size:cover;
     background-position:center;
@@ -289,8 +374,56 @@ nav a{
     text-align:center;
     color:#ff7b00;
     font-size:48px;
-    margin-bottom:35px;
+    margin-bottom:10px;
     text-shadow:0 4px 20px rgba(0,0,0,.5);
+}
+
+.page-badge{
+    display:block;
+    text-align:center;
+    color:#ff7b00;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.8;
+    margin-bottom:12px;
+}
+
+.watch-link{
+    display:inline-block;
+    margin-top:8px;
+    color:#ff7b00;
+    border:1.5px solid #ff7b00;
+    padding:10px 24px;
+    border-radius:30px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:.2s;
+    letter-spacing:.5px;
+}
+
+.watch-link:hover{
+    background:#ff7b00;
+    color:white;
+    box-shadow:0 4px 14px rgba(255,123,0,.35);
+    transform:translateY(-2px);
+}
+
+.empty-state{
+    text-align:center;
+    margin-top:45px;
+    padding:45px 20px;
+    border:2px dashed rgba(255,123,0,.3);
+    border-radius:14px;
+    background:rgba(255,123,0,.03);
+}
+
+.empty-state .icon{
+    font-size:38px;
+    display:block;
+    margin-bottom:14px;
+    opacity:.9;
 }
 
 .no-games,
@@ -299,8 +432,8 @@ nav a{
     text-align:center;
     color:#aaa;
     font-style:italic;
-    font-size:24px;
-    margin-top:50px;
+    font-size:22px;
+    margin:0;
 }
 
 .game{
@@ -315,7 +448,7 @@ nav a{
 .game:hover{
     transform:translateY(-3px);
     background:#2a2a2a;
-    box-shadow:0 6px 18px rgba(0,0,0,.4);
+    box-shadow:0 6px 18px rgba(0,0,0,.4), 0 0 0 1px rgba(255,123,0,.2);
 }
 
 .game h2{
@@ -368,7 +501,7 @@ nav a{
 .team:hover{
     transform:translateY(-3px);
     background:#2a2a2a;
-    box-shadow:0 6px 18px rgba(0,0,0,.4);
+    box-shadow:0 6px 18px rgba(0,0,0,.4), 0 0 0 1px rgba(255,123,0,.2);
 }
 
 .team h2{
@@ -388,12 +521,22 @@ nav a{
     border-radius:6px;
     padding:10px 14px;
     font-size:17px;
+    transition:.2s;
+}
+
+.roster li:hover{
+    background:#242424;
+    border-left:3px solid #ff7b00;
+    padding-left:11px;
 }
 
 footer{
     text-align:center;
     padding:30px;
-    color:#777;
+    color:#666;
+    border-top:1px solid rgba(255,123,0,.15);
+    font-size:14px;
+    letter-spacing:1px;
 }
 
 
@@ -401,10 +544,17 @@ footer{
 
 @media(max-width:700px){
 
-    .hamburger{
+    .nav-toggle-wrap{
         top:14px;
         right:14px;
+    }
+
+    .hamburger{
         padding:12px 14px;
+    }
+
+    .nav-label{
+        display:none;
     }
 
     .nav-links{
@@ -414,7 +564,7 @@ footer{
     }
 
     nav a{
-        font-size:19px;
+        font-size:22px;
     }
 
     .page{
@@ -469,17 +619,20 @@ footer{
 <body>
 
 <nav>
-    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <div class="nav-toggle-wrap">
+        <span class="nav-label" id="navLabel">Navigation</span>
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
     <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
     <div class="nav-links" id="navLinks">
-        <a onclick="showPage('home'); closeMenu()">HOME</a>
-        <a onclick="showPage('games'); closeMenu()">GAMES</a>
-        <a onclick="showPage('playoffs'); closeMenu()">PLAYOFFS</a>
-        <a onclick="showPage('teams'); closeMenu()">TEAMS</a>
+        <a onclick="showPage('home'); closeMenu()">Home</a>
+        <a onclick="showPage('games'); closeMenu()">Games</a>
+        <a onclick="showPage('playoffs'); closeMenu()">Playoffs</a>
+        <a onclick="showPage('teams'); closeMenu()">Teams</a>
     </div>
 </nav>
 
@@ -519,18 +672,14 @@ footer{
 <div style="margin-top:25px; text-align:center;">
     <a href="https://www.youtube.com/playlist?list=PLhl7YhPgeXATZWUfdYo-5q3F0ibUts-ku"
        target="_blank"
-       style="
-            color:#ff7b00;
-            font-size:22px;
-            font-weight:bold;
-            text-decoration:none;
-            transition:.2s;
-       ">
+       class="watch-link">
         Watch Some of Last Year's Games →
     </a>
 </div>
 
+<div class="empty-state">
 <p class="no-games">Nothing here yet!</p>
+</div>
 
 <!-----------------------------------------------------------------------
 <div class="game">
@@ -570,18 +719,14 @@ footer{
 <div style="margin-top:25px; text-align:center;">
     <a href="https://www.youtube.com/playlist?list=PLhl7YhPgeXATZWUfdYo-5q3F0ibUts-ku"
        target="_blank"
-       style="
-            color:#ff7b00;
-            font-size:22px;
-            font-weight:bold;
-            text-decoration:none;
-            transition:.2s;
-       ">
+       class="watch-link">
         Watch Some of Last Year's Games →
     </a>
 </div>
 
+<div class="empty-state">
 <p class="no-playoffs">Nothing here yet!</p>
+</div>
 
 <!-----------------------------------------------------------------------
 <div class="game">
@@ -618,7 +763,9 @@ footer{
 
 <h1 class="teams-title">Teams</h1>
 
+<div class="empty-state">
 <p class="no-teams">Nothing here yet!</p>
+</div>
 
 <!-----------------------------------------------------------------------
 <div class="team">
@@ -644,7 +791,7 @@ footer{
 
 
 <footer>
-
+Basketball Games
 </footer>
 
 
@@ -655,6 +802,7 @@ function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("open");
 document.getElementById("hamburgerBtn").classList.toggle("active");
 document.getElementById("navOverlay").classList.toggle("open");
+document.getElementById("navLabel").classList.toggle("open");
 
 }
 
@@ -663,6 +811,7 @@ function closeMenu(){
 document.getElementById("navLinks").classList.remove("open");
 document.getElementById("hamburgerBtn").classList.remove("active");
 document.getElementById("navOverlay").classList.remove("open");
+document.getElementById("navLabel").classList.remove("open");
 
 }
 
